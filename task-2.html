@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingstar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="full-body">
+    <main>
+        <section id="kiri">
+            <img src="img/ig1.png" alt="screen capture" class="gbig">
+            <!-- <img src="img/ig2.png" alt="screen capture" class="gbig"> -->
+            <img src="img/ig4.png" alt="screen capture" class="gbig">
+            <img src="img/ig3.png" alt="screen capture" class="gbig">
+        </section><section id="kanan">
+
+            <div id="cover-kanan">
+                <article id="form">
+                    <div>
+                        <img src="img/logo.png" alt="logo instagram" class="ig">
+                    </div>
+                    <div>
+
+                        <form action="">
+                            <div>
+                                <input type="email" value="" id="uname" placeholder="Phone number, username, or email" oninput="keatas1()" required>
+                                <span id="unamelbl"><label for="uname">Phone number, username, or email</label></span>
+                            </div>
+                            <div id="unamelbl2">
+                                <input type="password" value="" placeholder="Password" id="pass" oninput="keatas2()" required>
+                                <span id="unamelb3"><label for="pass">Password</label></span><span id="unamelb23" onclick="show()">Show</span><span id="unamelb24" onclick="hide()">Hide</span>
+                            </div>
+                            <div id="buttonlogin">
+                                <button id="login" disabled>Log in</button>
+                            </div>
+                        </form>
+
+                        <div id="pemisah"><hr class="kiri"><sup>OR</sup><hr></div>
+
+                        <div id="fblogin">
+                            <a href="#"><img src="img/fb.webp" alt="logo fb" id="fblogo"><span>Log in with Facebook</span></a>
+                            <p>Forgot password?</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="signUp">
+                    <div>
+                        Don't have an account? <a href="#">Sign Up</a>
+                    </div>
+                </article>
+
+                <article id="getapp">
+                    <p>Get the app.</p>
+                    <img src="img/gplay.png" alt="" class="app-img">
+                    <img src="img/microsoft.png" alt="" class="app-img">
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <span>Meta</span>
+            <span>About</span>
+            <span>Blog</span>
+            <span>Jobs</span>
+            <span>Help</span>
+            <span>API</span>
+            <span>Privacy</span>
+            <span>Terms</span>
+            <span>Location</span>
+            <span>Fenomenom</span>
+            <span>Food & Drink</span>
+            <span>Home & Garden</span>
+            <span>Music</span>
+            <span>Videos</span>
+            <span>Books</span>
+            <p>@2022 Duplicated by Ms Ebta</p>
+        </div>
+    </footer>
+</div>
+<script>
+    /*==========================================================================
+    |||||||||||||||||||||||||||Formulir section||||||||||||||||||||||||||||||||||
+    ===========================================================================*/ 
+    const inputUname = document.getElementById("uname");
+    const inputPass = document.getElementById("pass");
+    function keatas1(){
+        if ( inputUname.value.length<1 ) {
+            document.getElementById("unamelbl").style.visibility = "hidden";
+        } else {
+            document.getElementById("unamelbl").style.visibility = "visible";
+        }
+        if ( inputUname.value.length>1 && inputPass.value.length>5 ) {
+            document.getElementById('login').removeAttribute("disabled");
+        } else {
+            document.getElementById('login').setAttribute("disabled", "");
+        }
+    }
+    function keatas2(){
+        if ( inputPass.value.length<1 ) {
+            document.getElementById("unamelb3").style.visibility = "hidden";
+            document.getElementById("unamelb23").style.visibility = "hidden";
+            document.getElementById("unamelb24").style.visibility = "hidden";
+        } else {
+            document.getElementById("unamelb3").style.visibility = "visible";
+            document.getElementById("unamelb23").style.visibility = "visible";
+            document.getElementById("unamelb24").style.visibility = "visible";
+        }
+        if ( inputUname.value.length>1 && inputPass.value.length>5 ) {
+            document.getElementById('login').removeAttribute("disabled");
+        } else {
+            document.getElementById('login').setAttribute("disabled", "");
+        }
+    }
+    function show() {
+        var x = inputPass;
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        document.getElementById("unamelb23").style.display = "none";
+        document.getElementById("unamelb24").style.display = "inline-block";
+    }
+    function hide() {
+        var x = inputPass;
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        document.getElementById("unamelb23").style.display = "inline-block";
+        document.getElementById("unamelb24").style.display = "none";
+    }
+
+
+    /*==========================================================================
+    |||||||||||||||||||||||||||Captur Section|||||||||||||||||||||||||||||||||||
+    ===========================================================================*/ 
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+    var i;
+    var x = document.getElementsByClassName("gbig");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+</body>
+</html>
